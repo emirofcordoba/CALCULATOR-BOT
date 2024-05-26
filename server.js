@@ -80,8 +80,7 @@ bot.on('callback_query', async (query) => {
 });
 
 async function startCommand(chatId) {
-    var userName = ''; // You should define userName variable here
-    var message = `<pre>Hello ${userName}, I am a calculator bot. Use buttons or go inline in this chat or another chat. In inline mode, type numbers or signs like <b>1+1</b>, <b>3*3</b>, <b>3/2</b>, <b>4-2</b>, or combine multiple numbers or signs, e.g., <b>88+28-6</b>. Choose an option below:</pre>`;
+    var message = `<pre>Hello, I am a calculator bot. Use buttons or go inline in this chat or another chat. In inline mode, type numbers or signs like <b>1+1</b>, <b>3*3</b>, <b>3/2</b>, <b>4-2</b>, or combine multiple numbers or signs, e.g., <b>88+28-6</b>. Choose an option below:</pre>`;
     var inlineKeyboard = [
         [{ text: 'GO INLINE (HERE)🤖', switch_inline_query_current_chat: '' }],
         [{ text: 'GO INLINE (ABROAD)👾', switch_inline_query: '' }],
@@ -149,3 +148,4 @@ app.get('/', async (req, res) => {
 app.listen(PORT, () => {
    console.log(`Server is running on port ${PORT}`);
 });
+   
