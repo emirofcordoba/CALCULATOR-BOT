@@ -27,7 +27,7 @@ async function sendJoinChannelMessage(chatId) {
             ]
         }
     };
-    var message = "You can use this Telegram bot to upload any file and download that later🤩, but you're not joined to our channel. Please join and click 'Joined🙂'";
+    var message = "You can use this Telegram bot as a calculator🤩, but you're not joined to our channel. Please join and click 'Joined🙂'";
     await bot.sendMessage(chatId, `<pre>${message}</pre>`, options);
 }
 
@@ -58,22 +58,6 @@ bot.on('callback_query', async (query) => {
                 show_alert: true
             });
 
-            await sendJoinChannelMessage(chatId);
-        }
-    }
-});
-
-bot.on('callback_query', async (query) => {
-    var chatId = query.message.chat.id;
-    var userId = query.from.id;
-    var data = query.data;
-
-    if (data === 'upload') {
-        var member = await bot.getChatMember(CHANNEL_USERNAME, userId);
-
-        if (member.status === 'member' || member.status === 'administrator' || member.status === 'creator') {
-            await bot.sendMessage(chatId, "Send or forward the file you wanna upload📂");
-        } else {
             await sendJoinChannelMessage(chatId);
         }
     }
@@ -148,4 +132,3 @@ app.get('/', async (req, res) => {
 app.listen(PORT, () => {
    console.log(`Server is running on port ${PORT}`);
 });
-   
